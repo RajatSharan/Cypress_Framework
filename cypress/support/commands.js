@@ -25,13 +25,13 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 //Customise cypress command
-Cypress.Commands.add('selectProduct', (productname) => { 
+Cypress.Commands.add("selectProduct", (productname) => { 
 
-    cy.get(':nth-child(2) > .nav-link').click()
+    
     cy.get('h4.card-title').each(($e1,index,$list) =>{
 
-            const text =$e1.text();
-            if(text.includes('Blackberry'))
+            
+            if($e1.text().includes(productname))
             {
 
                 cy.get('button.btn.btn-info').eq(index).click()
