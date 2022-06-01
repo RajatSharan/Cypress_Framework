@@ -1,6 +1,12 @@
 {
 
-    "defaultCommandTimeout":9000
+    "defaultCommandTimeout":9000,
+    "env":
+    {
+
+        "url":"https://rahulshettyacademy.com"
+
+    }
 
 
 }

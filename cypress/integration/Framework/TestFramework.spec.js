@@ -1,8 +1,8 @@
 /// <reference types="Cypress" />
-import HomePage from '../pageObject/HomePage'
-import ProductsePage from '../pageObject/ProductsPage'
-import ShopPage from '../pageObject/ShopPage'
-import PurchasePage from '../pageObject/PurchasePage'
+import HomePage from '../../support/pageObject/HomePage'
+import ProductsePage from '../../support/pageObject/ProductsPage'
+import ShopPage from '../../support/pageObject/ShopPage'
+import PurchasePage from '../../support/pageObject/PurchasePage'
 
 describe('Hooks Setup',function()
 {
@@ -27,7 +27,7 @@ describe('Hooks Setup',function()
     const shoppage=new ShopPage()
     const purchasepage=new PurchasePage()
 
-    cy.visit('https://rahulshettyacademy.com/angularpractice/')
+    cy.visit(Cypress.env('url')+"/angularpractice/")
     homepage.getEditBox().type(this.data.Name)
     homepage.getGender().select(this.data.Gender)
             
@@ -46,14 +46,29 @@ describe('Hooks Setup',function()
     });
 
     productpage.getcheckout().click()
+    var sum=0
 
     cy.get('tr td:nth-child(4) strong').each(($el,index,$list) =>{
 
-        cy.log($el.text())
+        const amount=$el.text() 
+        var res= amount.split(" ")
+        res=res[1].trim()
+        sum=Number(sum)+Number(res)
+    }).then(function(){
 
-
+        cy.log(sum)
 
     })
+
+    cy.get('h3 > strong').then(function(element){
+
+        const amount=element.text() 
+        var res= amount.split(" ")
+        var total=res[1].trim()
+        expect(Number(total)).to.equal(sum)
+
+    })
+   
     shoppage.getCheckoutbutton().click()
  
 
@@ -61,17 +76,11 @@ describe('Hooks Setup',function()
     cy.get('.suggestions > ul > li > a').click()
     purchasepage.getCheckbox().click({force: true})
     purchasepage.getpurchasebutton().click()
-    purchasepage.getalert().then(function(element){
-    
-    
+    purchasepage.getalert().then(function(element)
+    {
     const actualtext=element.text()
     expect(actualtext.includes('Success')).to.be.true
-
-
     })
-
-           
-
     })
 
 
