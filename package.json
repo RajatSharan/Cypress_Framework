@@ -8,7 +8,7 @@
     "test": "node_modules\\.bin\\cypress run",
     "headtest":"npm run test -- --headed",
     "Chrometest": "npm run test -- --browser chrome",
-    "RecordDashboradTest":"npm run -- --record --key deca2e2e-ab08-4f03-bac7-35ce7a2c2d76"
+    "RecordDashboradTest":"npm run -- --record --key deca2e2e-ab08-4f03-bac7-35ce7a2c2d76 --reporter mochawesome"
 
 
   },  
