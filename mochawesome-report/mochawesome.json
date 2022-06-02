@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2022-06-02T14:28:02.136Z",
-    "end": "2022-06-02T14:28:25.599Z",
-    "duration": 23463,
+    "start": "2022-06-02T14:50:58.317Z",
+    "end": "2022-06-02T14:51:08.556Z",
+    "duration": 10239,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "f2bb798c-abbc-46c2-9a67-a67f3c5373ea",
+      "uuid": "fbe9ff3b-fc87-4801-9f45-d8ab2461c620",
       "title": "",
       "fullFile": "cypress/integration/Framework/TestFramework.spec.js",
       "file": "cypress/integration/Framework/TestFramework.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "07b26d54-8fdc-4532-8873-0ab5e47a218f",
+          "uuid": "385961df-a845-4169-8e54-1fd3b7aadc41",
           "title": "Hooks Setup",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,29 @@
               "title": "Hooks Setup",
               "fullTitle": "Hooks Setup Hooks Setup",
               "timedOut": null,
-              "duration": 21157,
+              "duration": 8283,
               "state": "passed",
-              "speed": "slow",
+              "speed": "medium",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
               "code": "const homepage = new _HomePage.default();\nconst productpage = new _ProductsPage.default();\nconst shoppage = new _ShopPage.default();\nconst purchasepage = new _PurchasePage.default();\ncy.visit(Cypress.env('url') + \"/angularpractice/\");\nhomepage.getEditBox().type(this.data.Name);\nhomepage.getGender().select(this.data.Gender); //Validating attribute properties and their behaviour with cypress assertions\nhomepage.getTwoWayDataBiding().should('have.value', this.data.Name);\nhomepage.getEditBox().should('have.attr', 'minlength', '2');\nhomepage.getEntrepreneur().should('be.disabled');\nhomepage.getShopTab().click();\nthis.data.productName.forEach(function (element) {\n  cy.selectProduct(element);\n});\nproductpage.getcheckout().click();\nvar sum = 0;\ncy.get('tr td:nth-child(4) strong').each(($el, index, $list) => {\n  const amount = $el.text();\n  var res = amount.split(\" \");\n  res = res[1].trim();\n  sum = Number(sum) + Number(res);\n}).then(function () {\n  cy.log(sum);\n});\ncy.get('h3 > strong').then(function (element) {\n  const amount = element.text();\n  var res = amount.split(\" \");\n  var total = res[1].trim();\n  expect(Number(total)).to.equal(sum);\n});\nshoppage.getCheckoutbutton().click();\npurchasepage.getSelectCountry().type('india');\ncy.get('.suggestions > ul > li > a').click();\npurchasepage.getCheckbox().click({\n  force: true\n});\npurchasepage.getpurchasebutton().click();\npurchasepage.getalert().then(function (element) {\n  const actualtext = element.text();\n  expect(actualtext.includes('Success')).to.be.true;\n});",
               "err": {},
-              "uuid": "14d14fa0-aecc-4119-8080-3b5dcd995973",
-              "parentUUID": "07b26d54-8fdc-4532-8873-0ab5e47a218f",
+              "uuid": "1617c866-a9da-4c26-9053-223164e05812",
+              "parentUUID": "385961df-a845-4169-8e54-1fd3b7aadc41",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "14d14fa0-aecc-4119-8080-3b5dcd995973"
+            "1617c866-a9da-4c26-9053-223164e05812"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 21157,
+          "duration": 8283,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

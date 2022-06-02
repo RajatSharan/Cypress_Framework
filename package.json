@@ -1,4 +1,17 @@
 {
+  "name": "Rajat Sharan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+
+    "test": "node_modules\\.bin\\cypress run",
+    "headtest":"npm run test -- --headed",
+    "Chrometest": "npm run test -- --browser chrome",
+    "RecordDashboradTest":"npm run -- --record --key deca2e2e-ab08-4f03-bac7-35ce7a2c2d76"
+
+
+  },  
   "devDependencies": {
     "cypress": "^9.7.0",
     "mocha": "^10.0.0",
