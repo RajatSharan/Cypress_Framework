@@ -5,7 +5,8 @@ orbs:
   cypress:cypress-io/cypress@9.7.0
 workflows:
     jobs:
-    - cypress/run
+    - cypress/run:
+      yarn:true
       - node/test:
           version: '16.10'
           pkg-manager: npm
