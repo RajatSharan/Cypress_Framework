@@ -1,12 +1,8 @@
 {
-
-    "defaultCommandTimeout":9000,
-    "env":
-    {
-
-        "url":"https://rahulshettyacademy.com"
-
-    }
-
-
+  "defaultCommandTimeout": 9000,
+  "reporter": "mochawesome",
+  "env": {
+    "url": "https://rahulshettyacademy.com"
+  },
+  "projectId": "henryb"
 }
